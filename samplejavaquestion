@@ -1,0 +1,341 @@
+import java.util.Scanner;
+
+// Simple Calculator
+public class SimpleCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter first number: ");
+        double num1 = scanner.nextDouble();
+        System.out.print("Enter second number: ");
+        double num2 = scanner.nextDouble();
+        System.out.println("Addition: " + (num1 + num2));
+        System.out.println("Subtraction: " + (num1 - num2));
+        System.out.println("Multiplication: " + (num1 * num2));
+        System.out.println("Division: " + (num1 / num2));
+    }
+}
+
+// Palindrome Checker
+public class PalindromeChecker {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String str = scanner.nextLine();
+        String reversed = new StringBuilder(str).reverse().toString();
+        System.out.println("Is palindrome: " + str.equals(reversed));
+    }
+}
+
+// Factorial Calculation
+public class FactorialCalculation {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = scanner.nextInt();
+        long factorial = 1;
+        for (int i = 1; i <= num; i++) {
+            factorial *= i;
+        }
+        System.out.println("Factorial: " + factorial);
+    }
+}
+
+// Fibonacci Sequence Generator
+public class FibonacciSequenceGenerator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter n: ");
+        int n = scanner.nextInt();
+        int a = 0, b = 1;
+        System.out.print("Fibonacci Sequence: ");
+        for (int i = 0; i < n; i++) {
+            System.out.print(a + " ");
+            int next = a + b;
+            a = b;
+            b = next;
+        }
+    }
+}
+
+// Sum of Digits
+public class SumOfDigits {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter an integer: ");
+        int num = scanner.nextInt();
+        int sum = 0;
+        while (num != 0) {
+            sum += num % 10;
+            num /= 10;
+        }
+        System.out.println("Sum of digits: " + sum);
+    }
+}
+
+// Prime Number Checker
+public class PrimeNumberChecker {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = scanner.nextInt();
+        boolean isPrime = true;
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        System.out.println("Is prime: " + (num > 1 && isPrime));
+    }
+}
+
+// Reverse a String
+public class ReverseString {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String str = scanner.nextLine();
+        String reversed = new StringBuilder(str).reverse().toString();
+        System.out.println("Reversed string: " + reversed);
+    }
+}
+
+// Number Guessing Game
+import java.util.Random;
+
+public class NumberGuessingGame {
+    public static void main(String[] args) {
+        Random random = new Random();
+        int numberToGuess = random.nextInt(100) + 1;
+        Scanner scanner = new Scanner(System.in);
+        int guess;
+        do {
+            System.out.print("Guess a number between 1 and 100: ");
+            guess = scanner.nextInt();
+            if (guess < numberToGuess) {
+                System.out.println("Higher!");
+            } else if (guess > numberToGuess) {
+                System.out.println("Lower!");
+            }
+        } while (guess != numberToGuess);
+        System.out.println("Congratulations! You guessed the number.");
+    }
+}
+
+// Leap Year Checker
+public class LeapYearChecker {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a year: ");
+        int year = scanner.nextInt();
+        boolean isLeap = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+        System.out.println("Is leap year: " + isLeap);
+    }
+}
+
+// Matrix Addition
+public class MatrixAddition {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter rows and columns: ");
+        int rows = scanner.nextInt();
+        int cols = scanner.nextInt();
+        int[][] matrix1 = new int[rows][cols];
+        int[][] matrix2 = new int[rows][cols];
+        int[][] sum = new int[rows][cols];
+
+        System.out.println("Enter first matrix:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                matrix1[i][j] = scanner.nextInt();
+            }
+        }
+
+        System.out.println("Enter second matrix:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                matrix2[i][j] = scanner.nextInt();
+            }
+        }
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                sum[i][j] = matrix1[i][j] + matrix2[i][j];
+            }
+        }
+
+        System.out.println("Sum of matrices:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                System.out.print(sum[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+// Vowel Counter
+public class VowelCounter {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String str = scanner.nextLine();
+        int count = 0;
+        for (char c : str.toCharArray()) {
+            if ("AEIOUaeiou".indexOf(c) != -1) {
+                count++;
+            }
+        }
+        System.out.println("Number of vowels: " + count);
+    }
+}
+
+// Temperature Converter
+public class TemperatureConverter {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter temperature in Celsius: ");
+        double celsius = scanner.nextDouble();
+        double fahrenheit = (celsius * 9/5) + 32;
+        System.out.println("Temperature in Fahrenheit: " + fahrenheit);
+    }
+}
+
+// Binary to Decimal Conversion
+public class BinaryToDecimal {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a binary number: ");
+        String binary = scanner.nextLine();
+        int decimal = Integer.parseInt(binary, 2);
+        System.out.println("Decimal equivalent: " + decimal);
+    }
+}
+
+// GCD and LCM Calculation
+public class GCDandLCM {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter two numbers: ");
+        int a = scanner.nextInt();
+        int b = scanner.nextInt();
+        int gcd = gcd(a, b);
+        int lcm = (a * b) / gcd;
+        System.out.println("GCD: " + gcd);
+        System.out.println("LCM: " + lcm);
+    }
+
+    public static int gcd(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+}
+
+// Word Count in a Sentence
+public class WordCount {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a sentence: ");
+        String sentence = scanner.nextLine();
+        String[] words = sentence.split("\\s+");
+        System.out.println("Number of words: " + words.length);
+    }
+}
+
+// Simple Interest Calculator
+public class SimpleInterestCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter principal, rate, and time: ");
+        double principal = scanner.nextDouble();
+        double rate = scanner.nextDouble();
+        double time = scanner.nextDouble();
+        double interest = (principal * rate * time) / 100;
+        System.out.println("Simple Interest: " + interest);
+    }
+}
+
+// Character Frequency Counter
+public class CharacterFrequencyCounter {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String str = scanner.nextLine();
+        int[] frequency = new int[256];
+        for (char c : str.toCharArray()) {
+            frequency[c]++;
+        }
+        for (int i = 0; i < frequency.length; i++) {
+            if (frequency[i] > 0) {
+                System.out.println((char) i + ": " + frequency[i]);
+            }
+        }
+    }
+}
+
+// Sorting an Array
+import java.util.Arrays;
+
+public class SortingArray {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter number of elements: ");
+        int n = scanner.nextInt();
+        int[] array = new int[n];
+        System.out.println("Enter elements:");
+        for (int i = 0; i < n; i++) {
+            array[i] = scanner.nextInt();
+        }
+        Arrays.sort(array);
+        System.out.println("Sorted array: " + Arrays.toString(array));
+    }
+}
+
+// File Reader and Writer
+import java.io.*;
+
+public class FileReaderWriter {
+    public static void main(String[] args) {
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("input.txt"));
+            BufferedWriter writer = new BufferedWriter(new FileWriter("output.txt"));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                writer.write(line);
+                writer.newLine();
+            }
+            reader.close();
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+// Student Grade Calculator
+public class StudentGradeCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter number of subjects: ");
+        int n = scanner.nextInt();
+        double total = 0;
+        for (int i = 0; i < n; i++) {
+            System.out.print("Enter marks for subject " + (i + 1) + ": ");
+            total += scanner.nextDouble();
+        }
+        double average = total / n;
+        char grade;
+        if (average >= 90) grade = 'A';
+        else if (average >= 80) grade = 'B';
+        else if (average >= 70) grade = 'C';
+        else if (average >= 60) grade = 'D';
+        else grade = 'F';
+        System.out.println("Total: " + total);
+        System.out.println("Average: " + average);
+        System.out.println("Grade: " + grade);
+    }
+}
